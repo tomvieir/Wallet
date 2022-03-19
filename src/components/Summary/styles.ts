@@ -2,6 +2,7 @@ import styled from "styled-components";
 
 export const Container = styled.div`
     display: flex;
+    overflow-x: auto;
     justify-content: space-between;
     margin-top: -7rem;
 
@@ -14,6 +15,7 @@ export const Container = styled.div`
         border-radius: 0.25rem;
 
         padding: 1.5rem;
+        margin: 1rem;
 
         header {
             
