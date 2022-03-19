@@ -89,4 +89,19 @@ export const GlobalStyle = createGlobalStyle`
 
    }
 
+   .react-modal-close {
+        border: none;
+        background: transparent;
+        position: absolute;
+        right: 0;
+        top: 0;
+
+        transform: translate(-100%, 100%);
+        transition: filter .3s;
+
+        &:hover {
+            filter: brightness(0.8);
+        }
+    }
+
 `
