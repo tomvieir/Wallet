@@ -27,6 +27,8 @@ export const GlobalStyle = createGlobalStyle`
 
 
    html {
+       min-width: 380px;
+
        @media (max-width: 1080px) {
            font-size: 93.75%;
        }
@@ -74,8 +76,12 @@ export const GlobalStyle = createGlobalStyle`
 
         display: flex;
         align-items: center;
-        justify-content: center;
-        
+        justify-content: center;   
+   }
+   @media(max-width:650px) {
+       .react-modal-overlay{
+           align-items: flex-end;
+       }
    }
 
    .react-modal-content {
@@ -86,7 +92,6 @@ export const GlobalStyle = createGlobalStyle`
         background: var(--background);
         border-radius: 0.3rem;
         padding: 3rem;
-
    }
 
    .react-modal-close {

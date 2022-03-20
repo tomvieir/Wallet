@@ -4,13 +4,16 @@ export const Container = styled.div`
     display: flex;
     overflow-x: auto;
     justify-content: space-between;
-    margin-top: -7rem;
+    margin-top: -8.5rem;
+    
 
     
     
 
     div { 
         width: 20rem;
+        min-width:18rem;
+        height: 10rem;
         background: var(--shape);       
         border-radius: 0.25rem;
 
@@ -18,12 +21,13 @@ export const Container = styled.div`
         margin: 1rem;
 
         header {
-            
+            margin-bottom: 2rem;
             display: flex;
             justify-content: space-between
         }
 
         strong {
+            
             font-size: 2rem;
             font-weight: 400;
             
@@ -32,6 +36,12 @@ export const Container = styled.div`
         &.higlight-content {
             background: var(--green);
             color: #FFF;
+        }
+
+        @media(max-width: 789px) {
+            strong {
+                font-size: 1.7rem;   
+            }
         }
     }
 `

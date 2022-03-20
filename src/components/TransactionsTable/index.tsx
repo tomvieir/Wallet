@@ -36,6 +36,30 @@ export function TransactionsTable() {
                         <td>Despesas</td>
                         <td>22/02/2022</td>
                     </tr>
+                    <tr>
+                        <td>Pensão</td>
+                        <td className="withdraw">-R$ 1.000,00</td>
+                        <td>Despesas</td>
+                        <td>22/02/2022</td>
+                    </tr>
+                    <tr>
+                        <td>Imposto</td>
+                        <td className="withdraw">-R$ 2.000,00</td>
+                        <td>Despesas</td>
+                        <td>22/02/2022</td>
+                    </tr>
+                    <tr>
+                        <td>Gasolina</td>
+                        <td className="withdraw">-R$ 4.000,00</td>
+                        <td>Despesas</td>
+                        <td>22/02/2022</td>
+                    </tr>
+                    <tr>
+                        <td>Kinder Ovo</td>
+                        <td className="withdraw">-R$ 50,00</td>
+                        <td>Alimentos</td>
+                        <td>22/02/2022</td>
+                    </tr>
                     
                 </tbody>
             </table>
