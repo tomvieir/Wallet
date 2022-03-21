@@ -15,7 +15,10 @@ export const GlobalStyle = createGlobalStyle`
        --text-title: #363f5f;
        --text-body: #969cb3;
 
-        --shape: #FFFFFF
+        --shape: #FFFFFF;
+
+        --button-income: rgba(8,185,8,0.10);
+        --button-withdraw: rgba(185, 8, 11, 0.10);
    }
    
    

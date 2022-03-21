@@ -1,6 +1,7 @@
 import styled from 'styled-components'
 import { darken } from 'polished'
 
+
 export const Container = styled.form`
     
     h2 { 
@@ -64,53 +65,63 @@ export const Container = styled.form`
 export const TransactionTypeContainer =styled.div`
     display: inline-flex;
     justify-content: center;
+    width: 100%;  
+
+`
+
+interface RadioBoxProps {
+    isActive: boolean;
+    activeColor: 'green' | 'red'
+}
+
+const colors = {
+    green: 'var(--button-income)',
+    red: 'var(--button-withdraw)'
+}
+
+export const RadioBox = styled.button<RadioBoxProps>`
     width: 100%;
+    height: 3.5rem;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    margin: 1rem 0;
     
+    border:1px solid #d7d7d7;
+    
+    border-radius: 0.25rem;
+    outline: none;
+    
+    background: ${(props) => props.isActive ? colors[props.activeColor] : 'transparent'};
+
+    transition: border-color .8s;
     
 
-
-    button {
-        width: 100%;
-        height: 3.5rem;
-        display: inline-flex;
-        align-items: center;
-        justify-content: center;
-        margin: 1rem 0;
+    &:first-child {
+        margin-right: .2rem;
         
-        border:1px solid #d7d7d7;
-        
-        border-radius: 0.25rem;
-        outline: none;
-        background: transparent;
-
-        transition: border-color .8s;
-        
-
-        &:first-child {
-            margin-right: .2rem;
-        }
-
-        &:last-child {
-            margin-left: .2rem
-        }
-
-        &:hover {
-            border-color: ${darken(0.1, '#d7d7d7')};
-        }
-
-        img {
-            width:1.5rem;
-            height: 1.5rem;
-            margin-right: 1rem;
-        }
-
-        span {
-            font-weight: 400;
-            font-size: 1rem;
-            color: var(--text-title)
-
-        }
     }
 
+    &:last-child {
+        margin-left: .2rem;
+        
+    }
+
+    &:hover {
+        border-color: ${darken(0.1, '#d7d7d7')};
+    }
+
+    img {
+        width:1.5rem;
+        height: 1.5rem;
+        margin-right: 1rem;
+    }
+
+    span {
+        font-weight: 400;
+        font-size: 1rem;
+        color: var(--text-title)
+    }
+    
 
 `
