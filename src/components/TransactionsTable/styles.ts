@@ -69,6 +69,7 @@ export const Container = styled.div`
                 &:last-child,
                 &:nth-child(3n){
                     display: inline-flex;
+                    justify-content: flex-end;
                     width: 13rem;
                 }
 
