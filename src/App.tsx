@@ -9,16 +9,23 @@ import {  TransactionsProvider } from "./TransactionsContexts";
 
 Modal.setAppElement('#root')
 
+export function formatValuesCurrency(value: number) {
+  return Intl.NumberFormat("pt-BR", {
+      style: 'currency',
+      currency: 'BRL'
+  }).format(value)
+}
+
 export function App() {
   
   const [isnewTransactionModalOpen, setIsNewTransectionOpen] = useState(false)
 
   function handleOpenNewTransactionModal() {
-      setIsNewTransectionOpen(true)
+    setIsNewTransectionOpen(true)
   }
 
   function handleCloseNewTransactionModal() {
-      setIsNewTransectionOpen(false)
+    setIsNewTransectionOpen(false)
   }
 
   return (
