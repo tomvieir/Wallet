@@ -10,7 +10,7 @@ import { OpenModalContextProvider } from "./context/OpenModalContext";
 
 Modal.setAppElement('#root')
 
-//value format
+//value format function
 export function formatValuesCurrency(value: number) {
   return Intl.NumberFormat("pt-BR", {
       style: 'currency',

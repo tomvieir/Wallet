@@ -21,8 +21,6 @@ export const Content = styled.div`
     align-items: center;
     justify-content: space-between;
 
-   
-
     button{
         font-size:1rem;
         color: #FFF;
