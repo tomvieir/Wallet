@@ -2,13 +2,15 @@ import { Dashboard } from "./components/Dashboard";
 import { Header } from "./components/Header";
 import { GlobalStyle } from "./styles/global";
 import Modal from 'react-modal'
-import { useState } from "react";
+
 import { NewTransactionModal } from "./components/NewTransactionModal";
-import {  TransactionsProvider } from "./TransactionsContexts";
+import {  TransactionsProvider } from "./context/TransactionsContexts";
+import { OpenModalContextProvider } from "./context/OpenModalContext";
 
 
 Modal.setAppElement('#root')
 
+//value format
 export function formatValuesCurrency(value: number) {
   return Intl.NumberFormat("pt-BR", {
       style: 'currency',
@@ -17,28 +19,16 @@ export function formatValuesCurrency(value: number) {
 }
 
 export function App() {
-  
-  const [isnewTransactionModalOpen, setIsNewTransectionOpen] = useState(false)
-
-  function handleOpenNewTransactionModal() {
-    setIsNewTransectionOpen(true)
-  }
-
-  function handleCloseNewTransactionModal() {
-    setIsNewTransectionOpen(false)
-  }
 
   return (
     <TransactionsProvider>
-      <Header onOpenNewTransactionModal={handleOpenNewTransactionModal} />
+      <OpenModalContextProvider>
+      <Header/>
 
       <Dashboard />
 
-      <NewTransactionModal 
-        isOpen={isnewTransactionModalOpen}
-        onRequestClose={handleCloseNewTransactionModal} 
-      />
-      
+      <NewTransactionModal/>
+      </OpenModalContextProvider>
       <GlobalStyle />
         
     </TransactionsProvider>

@@ -1,5 +1,5 @@
 import { FormEvent, useState, useContext } from 'react'
-import { TransactionsContext } from '../../TransactionsContexts'
+import { TransactionsContext } from '../../context/TransactionsContexts'
 import Modal from 'react-modal'
 
 import incomeImg from '../../assets/income.svg'
@@ -7,18 +7,13 @@ import outcomeImg from '../../assets/outcome.svg'
 import closeImg from '../../assets/close.svg'
 
 import { Container, RadioBox, TransactionTypeContainer } from './styles'
+import { OpenModalContext } from '../../context/OpenModalContext'
 
 
 
-
-
-interface NewTransactionModalProps {
-    isOpen: boolean,
-    onRequestClose: () => void
-}
-
-export function NewTransactionModal({ isOpen, onRequestClose }: NewTransactionModalProps) {
+export function NewTransactionModal() {
   const {createTransaction} = useContext(TransactionsContext)
+  const { handleCloseNewTransactionModal, isnewTransactionModalOpen} = useContext(OpenModalContext)
 
 
     const [type, setType] = useState('deposit')
@@ -34,30 +29,28 @@ export function NewTransactionModal({ isOpen, onRequestClose }: NewTransactionMo
         title, 
         amount,
         category 
-
       })
       
       setType('deposit')
       setTitle('')
       setAmount(0)
       setCategory('')
-      onRequestClose()
-
     }
+
     return (
         <Modal 
-          isOpen={isOpen}
-          onRequestClose={onRequestClose}
+          isOpen={isnewTransactionModalOpen}
+          onRequestClose={handleCloseNewTransactionModal}
           overlayClassName={'react-modal-overlay'}
           className="react-modal-content"
         >
             <button 
               type="button" 
-              onClick={onRequestClose}
+              onClick={handleCloseNewTransactionModal}
               className="react-modal-close"
 
-                >
-                <img src={closeImg} alt="Fechar modal" />
+            >
+              <img src={closeImg} alt="Fechar modal" />
             </button>
 
             <Container onSubmit={handleCrateNewTransaction}>
@@ -82,11 +75,9 @@ export function NewTransactionModal({ isOpen, onRequestClose }: NewTransactionMo
                       onClick={() => {setType('deposit')}}
                       isActive={type === 'deposit'}
                       activeColor='green'
-                      >
-                      
-
-                        <img src={incomeImg} alt="Entrada" />
-                        <span>Entrada</span>
+                    >
+                      <img src={incomeImg} alt="Entrada" />
+                      <span>Entrada</span>
 
                     </RadioBox>
 
@@ -95,11 +86,11 @@ export function NewTransactionModal({ isOpen, onRequestClose }: NewTransactionMo
                       onClick={() => {setType("withdraw")}}
                       isActive={type === 'withdraw'}
                       activeColor='red'
-                      >
+                    >
                       
 
-                        <img src={outcomeImg} alt="Saída" />
-                        <span>Saída</span>
+                      <img src={outcomeImg} alt="Saída" />
+                      <span>Saída</span>
 
                     </RadioBox>
                 </TransactionTypeContainer>
@@ -111,7 +102,7 @@ export function NewTransactionModal({ isOpen, onRequestClose }: NewTransactionMo
                 />
 
                 <button type="submit">
-                    Cadastrar
+                  Cadastrar
                 </button>
 
             </Container>

@@ -1,21 +1,22 @@
 
-import logoImg from '../../assets/logo.svg'
+import { useContext } from 'react'
+import logoImg from '../../assets/logo.png'
+import { OpenModalContext } from '../../context/OpenModalContext'
 import { Container, Content } from './styles'
 
 
 
-interface HeaderProps {
-    onOpenNewTransactionModal: () => void
-}
 
-export function Header({ onOpenNewTransactionModal }: HeaderProps) {
-   
+
+export function Header() {
+   const {handleOpenNewTransactionModal} = useContext(OpenModalContext)
 
     return (
         <Container>
             <Content>
-                <img src={logoImg} alt="dt-money" />
-                <button type="button" onClick={onOpenNewTransactionModal}>
+                <img src={logoImg} alt="Control Wallet" />
+                
+                <button type="button" onClick={handleOpenNewTransactionModal}>
                     Nova transação
                 </button>  
             </Content>

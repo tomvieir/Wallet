@@ -3,15 +3,13 @@ import { useContext } from "react";
 import outcomeImg from "../../assets/outcome.svg"
 import incomeImg from '../../assets/income.svg'
 import totalImg from '../../assets/total.svg'
-import { TransactionsContext } from "../../TransactionsContexts";
+import { TransactionsContext } from "../../context/TransactionsContexts";
 import { formatValuesCurrency } from "../../App";
 
 
 
 export function Summary() {
     const { transactions } = useContext(TransactionsContext)
-
-    console.log(transactions)
 
     const summary = transactions.reduce((acc, transaction) => {
         if (transaction.type === 'deposit') {

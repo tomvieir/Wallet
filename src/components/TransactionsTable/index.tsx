@@ -1,7 +1,7 @@
 
 import { useContext } from "react";
 import { formatValuesCurrency } from "../../App";
-import { TransactionsContext } from "../../TransactionsContexts";
+import { TransactionsContext } from "../../context/TransactionsContexts";
 import { Container } from "./styles";
 
 
